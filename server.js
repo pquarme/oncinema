@@ -88,9 +88,9 @@ app.get("/api/discover/:genre", (request, response) => {
     );
 });
 
-// app.get('/*', (req, res) => {
-//   res.sendFile(__dirname + '/build/index.html');
-// });
+app.get('/*', (req, res) => {
+  res.sendFile(__dirname + '/build/index.html');
+});
 
 app.listen(app.get("port"), () => {
   console.log(`Server: http://localhost:${app.get("port")}/`);
