@@ -25,6 +25,10 @@ h4 {
 .description-containter {
 	padding: 0 1.125rem;
 
+	@media(max-width: 768px){
+		padding-bottom: 3rem;
+	}
+
 	.description {
 		font-size: 1.2rem;
 		line-height: 1.5rem;
@@ -46,5 +50,8 @@ h4 {
 		height: 350px;
 		background: #f7f7f7;
 		margin: 1.125rem;
+		@media(max-width: 560px){
+			height: 225px;
+		}
 	}
 }

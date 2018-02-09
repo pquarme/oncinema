@@ -6,9 +6,11 @@
 	margin: 2rem 0 5rem;
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 
 	li {
 		text-transform: uppercase;
+		margin-bottom: 1rem;
 
 		a {
 			color: inherit;
@@ -43,10 +45,11 @@
 		&.romance .active {
 			color: $romance;
 		}
-
-		&:after {
-			content: '•';
-			color: black;
+		@media(min-width: 560px) {
+			&:after {
+				content: '•';
+				color: black;
+			}
 		}
 
 		&:nth-last-child(1) {

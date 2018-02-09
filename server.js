@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const fetch = require("isomorphic-fetch");
 const app = express();
@@ -34,7 +34,9 @@ const getMovieDetails = (genre, movieIds, response) => {
       }
     }));
     response.json(movies);
-  });
+  }).catch(err =>
+		response.status(500).json({ error: "TMDB movie resource failure." })
+	);;
 };
 
 const getMovieUrl = movieId => {
@@ -46,8 +48,6 @@ const getMovieUrl = movieId => {
 };
 
 app.get("/api/discover/:genre", (request, response) => {
-  console.log(request.params);
-
   const genre = request.params.genre;
   const genreExists = Object.keys(GENRE_KEY).includes(genre);
 
@@ -58,7 +58,7 @@ app.get("/api/discover/:genre", (request, response) => {
 
   //get date
   const today = new Date();
-  const formatDate = `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`;
+  const formatDate = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
 
   //create request url
   const url =
@@ -66,7 +66,10 @@ app.get("/api/discover/:genre", (request, response) => {
     `&with_genres=${GENRE_KEY[genre]}` +
     `&release_date.gte=${formatDate}` +
     `&sort_by=popularity.desc` +
-    `&year=${today.getFullYear()}`;
+    `&year=${today.getFullYear()}`+
+		'&region=US';
+
+  console.log("url - ", url);
 
   fetch(url)
     .then(res => {
@@ -81,7 +84,7 @@ app.get("/api/discover/:genre", (request, response) => {
       getMovieDetails(genre, movieIds, response);
     })
     .catch(err =>
-      response.status(500).json({ error: "TMDB resource failure." })
+      response.status(500).json({ error: "TMDB discover resource failure." })
     );
 });
 
