@@ -1,0 +1,58 @@
+@import 'scss/colors';
+
+.nav {
+	list-style: none;
+	padding: 0;
+	margin: 2rem 0 5rem;
+	display: flex;
+	justify-content: center;
+
+	li {
+		text-transform: uppercase;
+
+		a {
+			color: inherit;
+		}
+
+		p {
+			font-weight: bold;
+			margin: 0 20px;
+			display: inline-block;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		&.action .active {
+			color: $action;
+		}
+
+		&.drama .active {
+			color: $drama;
+		}
+
+		&.comedy .active {
+			color: $comedy;
+		}
+
+		&.horror .active {
+			color: $horror;
+		}
+
+		&.romance .active {
+			color: $romance;
+		}
+
+		&:after {
+			content: '•';
+			color: black;
+		}
+
+		&:nth-last-child(1) {
+			&:after {
+				content: '';
+			}
+		}
+	}
+}

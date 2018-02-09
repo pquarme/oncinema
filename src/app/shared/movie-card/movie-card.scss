@@ -1,0 +1,143 @@
+@import 'scss/colors';
+
+.movie-card {
+	padding: 1.125rem;
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+
+	&.selected .poster {
+		box-shadow: rgba(172,172,180,.2) 0 2px 2px, rgba(172,172,180,.2) 0 4px 4px, rgba(172,172,180,.2) 0 8px 8px, rgba(172,172,180,.2) 0 16px 16px, rgba(172,172,180,.2) 0 32px 32px, rgba(172,172,180,.2) 0 64px 64px;
+	}
+
+	.poster {
+		position: relative;
+		border-radius: 10px;
+		overflow: hidden;
+		max-height: 370px;
+
+		&:hover {
+			box-shadow: rgba(80,80,80,.2) 0 2px 2px, rgba(102,102,102,.2) 0 4px 4px, rgba(100,76,76,.2) 0 8px 8px, rgba(99,99,99,.2) 0 16px 16px, rgba(90,90,90,.2) 0 32px 32px, rgba(104,104,104,.2) 0 64px 64px;
+			transition: all 0.4s ease 0s;
+			cursor: pointer;
+
+			.play {
+				.bg {
+					opacity: 0.3;
+					transition: all 0.4s ease 0s;
+				}
+
+				.icon {
+					transform: scale(1);
+					opacity: 1;
+					transition: all 0.2s ease 0s;
+				}
+			}
+		}
+
+		.play {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			z-index: 1;
+			height: 100%;
+			width: 100%;
+			opacity: 1;
+			background: transparent;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			.icon {
+				height: 2rem;
+				width: 2rem;
+				padding: 20px;
+				background: transparent;
+				opacity: 0;
+				border: 2px solid white;
+				border-radius: 100%;
+				z-index: 2;
+				transform: scale(0);
+			}
+
+			svg {
+				margin-left: 0.3rem;
+				margin-top: 0.1rem;
+				fill: white;
+			}
+
+			.bg {
+				background-repeat: no-repeat;
+				background-size: contain;
+				height: 100%;
+				width: 100%;
+				position: absolute;
+				top: 0;
+				opacity: 0;
+			}
+		}
+	}
+
+	.movie-title {
+		font-size: 1.1rem;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	&.genre-action {
+		&.selected .movie-title {
+			color: $action;
+		}
+
+		.play {
+			.bg {
+				background: $action;
+			}
+		}
+	}
+
+	&.genre-drama {
+		&.selected .movie-title {
+			color: $drama;
+		}
+
+		.play .bg {
+			background: $drama;
+		}
+	}
+
+	&.genre-comedy {
+		&.selected .movie-title {
+			color: $comedy;
+		}
+
+		.play .bg {
+			background: $comedy;
+		}
+	}
+
+	&.genre-horror {
+		&.selected .movie-title {
+			color: $horror;
+		}
+
+		.play .bg {
+			background: $horror;
+		}
+	}
+
+	&.genre-romance {
+		&.selected .movie-title {
+			color: $romance;
+		}
+
+		.play .bg {
+			background: $romance;
+		}
+	}
+}

@@ -1,0 +1,32 @@
+body {
+	font-family: 'Lato', 'Helvetica Neue',sans-serif;
+	margin: 0;
+	padding: 0;
+	background: white;
+}
+
+body,
+html {
+	font-size: 16px;
+}
+@media (max-width:1680px) and (max-height:1050px) {
+	html {
+		font-size: 14px;
+	}
+}
+@media (max-width:1440px) and (max-height:900px) {
+	html {
+		font-size: 12px;
+	}
+}
+
+
+@font-face{
+    font-family: "Gotham Thin";
+    src: url("scss/fonts/Gotham-Thin.otf");
+}
+
+@font-face{
+    font-family: "Gotham Medium";
+    src: url('scss/fonts/Gotham-Medium.otf');
+}

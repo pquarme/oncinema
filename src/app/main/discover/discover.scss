@@ -1,0 +1,50 @@
+.row {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	@media(max-width: 768px) {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+	}
+}
+
+.slide-enter {
+	opacity: 0.01;
+	transform: translateY(-5%);
+
+	&.slide-enter-active {
+		opacity: 1;
+		transform: translateY(0);
+		transition: transform 300ms, opacity 500ms;
+	}
+}
+
+h4 {
+	font-size: 1.125rem;
+}
+
+.description-containter {
+	padding: 0 1.125rem;
+
+	.description {
+		font-size: 1.2rem;
+		line-height: 1.5rem;
+		color: rgba(0,0,0,.8);
+	}
+
+	.placeholder {
+		background: #f7f7f7;
+		height: 1.5rem;
+		margin-bottom: 1rem;
+	}
+}
+
+.movies-container {
+	margin-bottom: 2rem;
+	min-height: 45vh;
+
+	.placeholder {
+		height: 350px;
+		background: #f7f7f7;
+		margin: 1.125rem;
+	}
+}

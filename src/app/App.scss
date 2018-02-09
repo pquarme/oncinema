@@ -1,0 +1,17 @@
+.App {
+	max-width: 1200px;
+	margin: 0 auto;
+
+	.App-title {
+		font-family: 'Gotham Thin', 'Lato', sans-serif;
+		font-weight: 100;
+		font-size: 2.5rem;
+		text-align: center;
+		margin: 2rem 0 5rem;
+
+		b {
+			font-family: 'Gotham Medium', 'Lato', sans-serif;
+			font-weight: 400;
+		}
+	}
+}
