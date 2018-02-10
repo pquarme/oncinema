@@ -1,10 +1,11 @@
 require("dotenv").config();
 const express = require("express");
 const fetch = require("isomorphic-fetch");
+const path = require('path');
 const app = express();
 
 app.set("port", process.env.PORT || 3001);
-app.use(express.static(__dirname + "/build"));
+app.use(express.static(path.join(__dirname, 'build')));
 
 const API_KEY = process.env.API_KEY;
 
@@ -89,7 +90,7 @@ app.get("/api/discover/:genre", (request, response) => {
 });
 
 app.get('/*', (req, res) => {
-  res.sendFile(__dirname + '/build/index.html');
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.listen(app.get("port"), () => {

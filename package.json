@@ -9,6 +9,7 @@
 		"lodash.debounce": "^4.0.8",
 		"node-sass-chokidar": "0.0.3",
 		"npm-run-all": "^4.1.2",
+		"path": "^0.12.7",
 		"react": "^16.2.0",
 		"react-dom": "^16.2.0",
 		"react-router-dom": "^4.2.2",
