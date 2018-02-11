@@ -70,8 +70,6 @@ app.get("/api/discover/:genre", (request, response) => {
     `&year=${today.getFullYear()}`+
 		'&region=US';
 
-  console.log("url - ", url);
-
   fetch(url)
     .then(res => {
       if (!res.ok) {

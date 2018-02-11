@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { MovieCard, YTPlayer } from "../../shared/shared.module";
-import "./discover.css";
+import React, { Component } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { MovieCard, YTPlayer, TMDBService } from '../../shared/shared.module';
+import './discover.css';
 
-const _debounce = require("lodash.debounce");
+const _debounce = require('lodash.debounce');
 
 const Fade = ({ children, ...props }) => (
-  <CSSTransition {...props} exit={false} timeout={1000} classNames="slide">
+  <CSSTransition {...props} exit={false} timeout={1000} classNames='slide'>
     {children}
   </CSSTransition>
 );
@@ -45,13 +45,8 @@ class Discover extends Component {
       isLoading: true
     });
 
-    fetch(`api/discover/${genre}`)
-      .then(res => {
-        if (!res.ok) {
-          throw Error(res.statusText);
-        }
-        return res.json();
-      })
+    new TMDBService()
+      .getGenre(genre)
       .then(movies => {
         this.setState(prevState => ({
           isLoading: false,
@@ -72,7 +67,7 @@ class Discover extends Component {
           );
         });
       })
-      .catch(err => this.props.history.push("/action"));
+      .catch(err => this.props.history.push('/action'));
   };
 
   handlePlayMovie = movie => {
@@ -98,18 +93,18 @@ class Discover extends Component {
     ) : null;
 
     let moviesContainer = (
-      <div className="row">
-        <div className="placeholder" />
-        <div className="placeholder" />
-        <div className="placeholder" />
-        <div className="placeholder" />
+      <div className='row'>
+        <div className='placeholder' />
+        <div className='placeholder' />
+        <div className='placeholder' />
+        <div className='placeholder' />
       </div>
     );
 
     let descriptionContainer = (
       <div>
-        <div className="placeholder" />
-        <div className="placeholder" />
+        <div className='placeholder' />
+        <div className='placeholder' />
       </div>
     );
 
@@ -127,18 +122,18 @@ class Discover extends Component {
       ));
 
       moviesContainer = (
-        <TransitionGroup className="row">{movieList}</TransitionGroup>
+        <TransitionGroup className='row'>{movieList}</TransitionGroup>
       );
 
       descriptionContainer = (
-        <p className="description">{this.state.selectedMovie.description}</p>
+        <p className='description'>{this.state.selectedMovie.description}</p>
       );
     }
 
     return (
       <div>
-        <div className="movies-container">{moviesContainer}</div>
-        <div className="description-containter">
+        <div className='movies-container'>{moviesContainer}</div>
+        <div className='description-containter'>
           <h4>Description</h4>
           {descriptionContainer}
         </div>

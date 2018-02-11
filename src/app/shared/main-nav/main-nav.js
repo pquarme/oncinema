@@ -1,9 +1,9 @@
-import React from "react";
-import "./main-nav.css";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import './main-nav.css';
+import { NavLink } from 'react-router-dom';
 
-const Nav = props => {
-  const genres = ["action", "romance", "comedy", "horror", "drama"];
+const MainNav = () => {
+  const genres = ['action', 'romance', 'comedy', 'horror', 'drama'];
   const list = genres.map((genre, index) => (
     <li key={index} className={genre}>
       <NavLink to={`/${genre}`}>
@@ -12,7 +12,7 @@ const Nav = props => {
     </li>
   ));
 
-  return <ul className="nav">{list}</ul>;
+  return <ul className='nav'>{list}</ul>;
 };
 
-export default Nav;
+export default MainNav;

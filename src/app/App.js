@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import "./App.css";
-import Discover from "./main/discover/discover";
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
-import { MainNav } from "./shared/shared.module";
+import React, { Component } from 'react';
+import './App.css';
+import Discover from './main/discover/discover';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+import { MainNav } from './shared/shared.module';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">
+      <div className='App'>
+        <header className='App-header'>
+          <h1 className='App-title'>
             <b>on</b>CINEMA
           </h1>
         </header>
@@ -17,8 +17,8 @@ class App extends Component {
           <div>
             <MainNav />
             <Switch>
-              <Route strict exact path="/:genre" component={Discover} />
-              <Route render={() => <Redirect to="/action" />} />
+              <Route strict exact path='/:genre' component={Discover} />
+              <Route render={() => <Redirect to='/action' />} />
             </Switch>
           </div>
         </BrowserRouter>
